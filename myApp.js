@@ -165,11 +165,13 @@ var findOneByFood = function(food, done) {
 // method for it. Find the (only!!) person having a certain Id,
 // using `Model.findById() -> Person`.
 // Use the function argument 'personId' as search key.
-
+var personId = 1;
 var findPersonById = function(personId, done) {
-  
-  done(null/*, data*/);
-  
+  Person.findById({_id: personId}, function(err, id){
+	  if(err) return console.log(err);
+  	  done(null/*, data*/);
+  });
+
 };
 
 /** # CR[U]D part III - UPDATE # 
