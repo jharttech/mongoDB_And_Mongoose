@@ -130,10 +130,13 @@ var createManyPeople = function(arrayOfPeople, done) {
 // object ) as the first argument, and returns an **array** of matches.
 // It supports an extremely wide range of search options. Check it in the docs.
 // Use the function argument `personName` as search key.
+var personName = "Bob";
 
 var findPeopleByName = function(personName, done) {
-  
-  done(null/*, data*/);
+  Person.find({name: personName}, function (err, person){
+	  if(err) return console.log(err);
+	  done(null, person);
+  });
 
 };
 
