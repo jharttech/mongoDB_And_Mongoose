@@ -169,7 +169,7 @@ var personId = 1;
 var findPersonById = function(personId, done) {
   Person.findById({_id: personId}, function(err, id){
 	  if(err) return console.log(err);
-  	  done(null, data);
+  	  done(null, id);
   });
 
 };
