@@ -148,11 +148,13 @@ var findPeopleByName = function(personName, done) {
 // Find just one person which has a certain food in her favorites,
 // using `Model.findOne() -> Person`. Use the function
 // argument `food` as search key
+var food = "Wings";
 
 var findOneByFood = function(food, done) {
-
-  done(null/*, data*/);
-  
+  Person.findOne({favoriteFoods: food}, function(err, favs){
+	  if(err) return console.log(err);
+	  done(null, favs);
+  });
 };
 
 /** 7) Use `Model.findById()` */
