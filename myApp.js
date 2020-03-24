@@ -48,7 +48,6 @@ var personSchema = new Schema({
 	favoriteFoods: [String]
 });
 
-var Person = mongoose.model("Person", personSchema);
 
 // **Note**: Glitch is a real server, and in real servers interactions with
 // the db are placed in handler functions, to be called when some event happens
@@ -85,9 +84,18 @@ var Person = mongoose.model("Person", personSchema);
 //    ...do your stuff here...
 // });
 
+var Person = mongoose.model("Person", personSchema);
+
 var createAndSavePerson = function(done) {
-  
-  done(null /*, data*/);
+  var jharttech = new Person({
+	  name: "Jason Hartgraves",
+	  age: 99,
+	  favoriteFoods: ["Steak", "Beer", "Brownies"]
+  });
+  jharttech.save(function(err, data){
+	  if (err) return console.error(err);
+	  done(null, data);
+  });
 
 };
 
